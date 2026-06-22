@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Apex Fitness – Salle de sport premium à Paris. Équipements de pointe, coachs certifiés, cours collectifs. Essai gratuit disponible." />
   <title>Apex Fitness – Dépasse Tes Limites</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,28 +15,90 @@
   <!-- ===================== HEADER / NAV ===================== -->
   <header class="navbar">
     <div class="navbar__container">
-      <a href="#" class="navbar__logo">
-        <span class="navbar__bolt">⚡</span>
+
+      <a href="#accueil" class="navbar__logo" aria-label="Apex Fitness — accueil">
+        <span class="navbar__bolt" aria-hidden="true">⚡</span>
         <span class="navbar__brand">APEX <span class="orange">FITNESS</span></span>
       </a>
 
-      <button class="navbar__toggle" id="navToggle" aria-label="Ouvrir le menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="navbar__links" id="navLinks">
+      <!-- Liens desktop (visibles uniquement ≥ 900px via CSS) -->
+      <nav class="navbar__links" id="navLinks" aria-label="Navigation principale">
         <a href="#accueil">Accueil</a>
         <a href="#abonnements">Abonnements</a>
         <a href="#contact">Contact</a>
       </nav>
 
+      <!-- CTA desktop -->
       <a href="#contact" class="btn btn--orange navbar__cta">Essai Gratuit</a>
+
+      <!-- ★ Burger 48×48px — visible uniquement sur mobile -->
+      <button
+        class="navbar__toggle"
+        id="navToggle"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="navDrawer"
+      >
+        <svg class="icon-burger" width="24" height="24" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6"  x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6"  y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
     </div>
   </header>
 
+  <!-- ★ Overlay sombre derrière le drawer -->
+  <div class="navbar__overlay" id="navOverlay" aria-hidden="true"></div>
+
+  <!-- ★ Volet latéral mobile (drawer) -->
+  <aside class="navbar__drawer" id="navDrawer"
+         role="dialog" aria-modal="true" aria-label="Menu de navigation">
+
+    <div class="drawer__header">
+      <span class="drawer__logo">
+        <span class="navbar__bolt" aria-hidden="true">⚡</span>
+        APEX <span class="orange">FITNESS</span>
+      </span>
+      <button class="drawer__close" id="drawerClose" aria-label="Fermer le menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6"  y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <ul class="drawer__links" role="list">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#abonnements">Abonnements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="drawer__cta-wrap">
+      <a href="#contact" class="btn btn--orange drawer__cta">Essai Gratuit</a>
+    </div>
+
+    <div class="drawer__footer">
+      <span class="drawer__dot" aria-hidden="true"></span>
+      Salle de sport premium · Paris 11e
+    </div>
+
+  </aside>
+
   <!-- ===================== HERO ===================== -->
+  <main>
   <section class="hero" id="accueil">
-    <div class="hero__overlay"></div>
+    <div class="hero__overlay" aria-hidden="true"></div>
     <div class="hero__content">
       <p class="hero__eyebrow">BIENVENUE CHEZ APEX FITNESS</p>
       <h1 class="hero__title">
@@ -62,7 +125,6 @@
 
       <div class="features__grid">
 
-        <!-- Card 1 -->
         <div class="feature-card">
           <div class="feature-card__img-wrap">
             <img
@@ -78,7 +140,6 @@
           </div>
         </div>
 
-        <!-- Card 2 -->
         <div class="feature-card">
           <div class="feature-card__img-wrap">
             <img
@@ -94,7 +155,6 @@
           </div>
         </div>
 
-        <!-- Card 3 -->
         <div class="feature-card">
           <div class="feature-card__img-wrap">
             <img
@@ -122,7 +182,6 @@
 
       <div class="pricing__grid">
 
-        <!-- Starter -->
         <div class="pricing-card">
           <h3 class="pricing-card__name">Starter</h3>
           <p class="pricing-card__desc">Parfait pour commencer ton parcours fitness</p>
@@ -136,7 +195,6 @@
           <a href="#contact" class="btn btn--dark pricing-card__btn">Choisir Starter</a>
         </div>
 
-        <!-- Pro (featured) -->
         <div class="pricing-card pricing-card--featured">
           <div class="pricing-card__badge">PLUS POPULAIRE</div>
           <h3 class="pricing-card__name">Pro</h3>
@@ -152,7 +210,6 @@
           <a href="#contact" class="btn btn--orange pricing-card__btn">Choisir Pro</a>
         </div>
 
-        <!-- Elite -->
         <div class="pricing-card">
           <h3 class="pricing-card__name">Elite</h3>
           <p class="pricing-card__desc">L'expérience premium sans compromis</p>
@@ -180,30 +237,28 @@
 
       <div class="contact__layout">
 
-        <!-- Form -->
         <div class="contact__form-wrap">
-          <div class="contact__form">
+          <form class="contact__form" id="contactForm" novalidate>
             <div class="form-group">
               <label for="nom">Nom complet</label>
-              <input type="text" id="nom" placeholder="Jean Dupont" />
+              <input type="text" id="nom" name="nom" placeholder="Jean Dupont" autocomplete="name" required />
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" id="email" placeholder="jean@exemple.com" />
+              <input type="email" id="email" name="email" placeholder="jean@exemple.com" autocomplete="email" required />
             </div>
             <div class="form-group">
               <label for="tel">Téléphone</label>
-              <input type="tel" id="tel" placeholder="06 12 34 56 78" />
+              <input type="tel" id="tel" name="tel" placeholder="06 12 34 56 78" autocomplete="tel" />
             </div>
             <div class="form-group">
               <label for="message">Message (optionnel)</label>
-              <textarea id="message" rows="4" placeholder="Dis-nous tes objectifs ou pose-nous une question..."></textarea>
+              <textarea id="message" name="message" rows="4" placeholder="Dis-nous tes objectifs ou pose-nous une question..."></textarea>
             </div>
-            <button class="btn btn--orange contact__submit">Réserver ma séance gratuite</button>
-          </div>
+            <button type="submit" class="btn btn--orange contact__submit">Réserver ma séance gratuite</button>
+          </form>
         </div>
 
-        <!-- Info -->
         <div class="contact__info">
           <h3>Informations</h3>
           <div class="info-item">
@@ -217,14 +272,14 @@
             <div class="info-item__icon">📞</div>
             <div>
               <strong>Téléphone</strong>
-              <p>01 23 45 67 89</p>
+              <p><a href="tel:+33123456789" style="color:inherit;">01 23 45 67 89</a></p>
             </div>
           </div>
           <div class="info-item">
             <div class="info-item__icon">✉️</div>
             <div>
               <strong>Email</strong>
-              <p>contact@apexfitness.fr</p>
+              <p><a href="mailto:contact@apexfitness.fr" style="color:inherit;">contact@apexfitness.fr</a></p>
             </div>
           </div>
 
@@ -239,55 +294,38 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="footer__inner">
-      <a href="#" class="navbar__logo">
-        <span class="navbar__bolt">⚡</span>
+      <a href="#accueil" class="navbar__logo">
+        <span class="navbar__bolt" aria-hidden="true">⚡</span>
         <span class="navbar__brand">APEX <span class="orange">FITNESS</span></span>
       </a>
-      <div class="footer__socials">
+      <nav class="footer__socials" aria-label="Réseaux sociaux">
         <a href="#" aria-label="Instagram">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10A5 5 0 0 1 12 7zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.75a.875.875 0 1 1 0 1.75.875.875 0 0 1 0-1.75z"/>
           </svg>
         </a>
         <a href="#" aria-label="Facebook">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M22 12c0-5.522-4.478-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
           </svg>
         </a>
         <a href="#" aria-label="YouTube">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M21.8 8s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C16.6 5 12 5 12 5s-4.6 0-7 .1c-.4.1-1.2.1-2 .9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c .8.8 1.8.8 2.3.9C6.8 19 12 19 12 19s4.6 0 7-.2c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5C22 9.6 21.8 8 21.8 8zM9.7 14.5V9.1l5.5 2.7-5.5 2.7z"/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21.8 8s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C16.6 5 12 5 12 5s-4.6 0-7 .1c-.4.1-1.2.1-2 .9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.8.8 1.8.8 2.3.9C6.8 19 12 19 12 19s4.6 0 7-.2c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5C22 9.6 21.8 8 21.8 8zM9.7 14.5V9.1l5.5 2.7-5.5 2.7z"/>
           </svg>
         </a>
-      </div>
+      </nav>
       <p class="footer__copy">© 2026 Apex Fitness. Tous droits réservés.</p>
     </div>
   </footer>
 
-  <script>
-    // Mobile menu toggle
-    const toggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      toggle.classList.toggle('active');
-    });
-    // Close on link click
-    navLinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        toggle.classList.remove('active');
-      });
-    });
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-      document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
-    });
-  </script>
+  <!-- ★ Script séparé -->
+  <script src="main.js"></script>
 
 </body>
 </html>
